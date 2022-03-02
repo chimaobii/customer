@@ -1,0 +1,33 @@
+{% extends 'page/base.html' %}
+
+
+
+
+
+{% block content %}
+<h1>Welcome to Tech365</h1>
+<!-- <img src="../../static/pictures/chima.jpg" alt=""> -->
+
+<a href="/create">add new customer</a> <br><br>
+<table border="1">
+    <tr>
+        <td>ID</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Email</td>
+        <td>action</td>
+    </tr>
+    {% for i in customerlist %}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.first_name}}</td>
+        <td>{{i.last_name}}</td>
+        <td>{{i.email}}</td>
+        <td><a href="{% url 'profile' i.id %}">View</a> 
+            <a href="{% url 'delete' i.id %}">Delete</a> 
+            <a href="{% url 'edit' i.id %}">Edit</a></td>
+    </tr> 
+    {% endfor %}
+</table>
+
+{% endblock content %}

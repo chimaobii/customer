@@ -1,0 +1,18 @@
+{% extends 'page/base.html' %}
+
+
+
+
+{% block content %}
+<h1>Edit page</h1>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token%}
+
+    {{form.as_p}}
+    <button type="text">Submit</button>
+
+</form>
+
+
+{% endblock content %}
